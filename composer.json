@@ -1,0 +1,22 @@
+{
+    "name": "wenyuan/yii2-ueditor",
+    "description": "text-image editor in Yii2",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","editor","ueditor","upload","flash"],
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "wenyuan",
+            "email": "liucunzhou@163.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "wenyuan\\ueditor\\": ""
+        }
+    }
+}
