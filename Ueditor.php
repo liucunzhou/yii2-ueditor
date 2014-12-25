@@ -31,7 +31,7 @@ class Ueditor extends InputWidget
     public function init() {
     	
     	$this->events = $this->options;
-    	
+    	\Yii::setAlias('@wenyuan\ueditor\assets', '@vendor/wenyuan/yii2-ueditor/assets');
         if(empty($this->name)){
             $this->name=$this->hasModel() ? Html::getInputName($this->model, $this->attribute): $this->id;
         }
