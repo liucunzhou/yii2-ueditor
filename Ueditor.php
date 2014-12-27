@@ -17,7 +17,12 @@ use wenyuan\ueditor\UeditorAsset;
 
 class Ueditor extends InputWidget
 {
+	/**
+	 * 百度编辑器内设置的参数
+	 * @var array
+	 */
     public $events = [];
+    public $ucontent = '';
     
     /*
      * Tag
@@ -29,6 +34,10 @@ class Ueditor extends InputWidget
      * Initializes the widget
      */
     public function init() {
+    	if(isset($this->options['ucontent'])){
+    		$this->ucontent = $this->options['ucontent'];
+    		unset($this->options['ucontent']);
+    	}
     	
     	$this->events = $this->options;
     	\Yii::setAlias('@wenyuan\ueditor\assets', '@vendor/wenyuan/yii2-ueditor/assets');
@@ -65,7 +74,7 @@ class Ueditor extends InputWidget
     		'id'	=> $this->id
 		];
     	
-        return Html::script('', $options);
+        return Html::script($this->ucontent, $options);
     }
     
     /**
@@ -73,8 +82,9 @@ class Ueditor extends InputWidget
      */
     private function registerScripts() {
         $jsonOptions = Json::encode($this->events);
+        
         $script = <<<EOF
-var um = UE.getEditor('{$this->id}', {$jsonOptions});
+UE.getEditor('{$this->id}', {$jsonOptions});
 EOF;
         $this->view->registerJs($script, View::POS_READY);
     }
