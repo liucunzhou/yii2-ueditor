@@ -8,7 +8,7 @@ class UeditorAsset extends AssetBundle{
     /*
      * @inheritdoc
      */
-    public $sourcePath='@wenyuan\ueditor\assets';
+    public $sourcePath='@wenyuan/ueditor/assets';
 
     public $css=[
         'css/ueditor.min.css',  
